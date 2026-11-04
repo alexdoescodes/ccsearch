@@ -33,7 +33,7 @@ Changelog = "https://github.com/alexdoescodes/csearch/blob/main/CHANGELOG.md"
 csearch = "csearch:cli"
 
 [project.optional-dependencies]
-dev = ["pytest>=8", "ruff>=0.6"]
+dev = ["pytest>=8", "ruff>=0.17.3"]
 
 [tool.setuptools]
 py-modules = ["csearch"]
