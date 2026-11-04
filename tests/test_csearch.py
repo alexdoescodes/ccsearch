@@ -91,9 +91,9 @@ def test_search_ranks_topic_match_first_and_tolerates_typos(env):
 
 def test_project_path_counts(env):
     tmp, projects = env
-    write_session(projects, tmp / "harbor", "h", [user("add login", str(tmp / "harbor"), sid="h")])
+    write_session(projects, tmp / "myapp", "h", [user("add login", str(tmp / "myapp"), sid="h")])
     write_session(projects, tmp / "other", "o", [user("add login", str(tmp / "other"), sid="o")])
-    top = cs.search(cs.load_index(), "harbor login", 2)
+    top = cs.search(cs.load_index(), "myapp login", 2)
     assert top[0][1]["id"] == "h"
 
 
