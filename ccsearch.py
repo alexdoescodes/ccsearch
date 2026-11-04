@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-"""csearch - fuzzy search Claude Code sessions and resume one.
+"""ccsearch - fuzzy search Claude Code sessions and resume one.
 
 Usage:
-  csearch <words...>        search, pick with arrow keys, Enter resumes
-  csearch                   prompt for the search words
-  csearch -p <words...>     print the top matches, no picker
-  csearch -n 10 <words...>  show 10 matches instead of 5
-  csearch --reindex ...     rebuild the cache from scratch
-  csearch --version         print the version
+  ccsearch <words...>        search, pick with arrow keys, Enter resumes
+  ccsearch                   prompt for the search words
+  ccsearch -p <words...>     print the top matches, no picker
+  ccsearch -n 10 <words...>  show 10 matches instead of 5
+  ccsearch --reindex ...     rebuild the cache from scratch
+  ccsearch --version         print the version
 
 Matches against (strongest first): the session title, the prompts you
 typed, and the project directory.
@@ -343,7 +343,7 @@ def resume_dir(s):
 def resume(s):
     cwd = resume_dir(s)
     if not cwd or not os.path.isdir(cwd):
-        sys.exit(f"csearch: the session's directory no longer exists: {cwd or '?'}\n"
+        sys.exit(f"ccsearch: the session's directory no longer exists: {cwd or '?'}\n"
                  f"    session id: {s['id']}")
     os.chdir(cwd)
     print(f"→ {cwd}\n→ claude --resume {s['id']}", file=sys.stderr)
@@ -364,12 +364,12 @@ def main(argv):
         elif a == "--reindex":
             rebuild = True
         elif a in ("-V", "--version"):
-            print(f"csearch {__version__}")
+            print(f"ccsearch {__version__}")
             return 0
         elif a == "-n":
             val = next(it, "")
             if not val.isdigit() or int(val) < 1:
-                print("csearch: -n needs a positive number", file=sys.stderr)
+                print("ccsearch: -n needs a positive number", file=sys.stderr)
                 return 2
             n = int(val)
         else:
@@ -385,7 +385,7 @@ def main(argv):
 
     sessions = load_index(rebuild)
     if not sessions:
-        sys.exit("csearch: no sessions found under " + PROJECTS)
+        sys.exit("ccsearch: no sessions found under " + PROJECTS)
     results = search(sessions, query, n)
     tokens = " ".join(query.lower().split()).split()
     if printing or not sys.stdout.isatty():

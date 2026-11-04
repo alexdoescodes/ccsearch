@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="912" height="176" viewBox="0 0 912 176" role="img" aria-labelledby="t d">
-<title id="t">How csearch works</title>
+<title id="t">How ccsearch works</title>
 <desc id="d">Four steps: read Claude Code transcripts, keep a cached index that only re-reads changed files, fuzzy-match on title, prompts and project path, then run claude --resume in the session's own directory.</desc>
 
   <g>

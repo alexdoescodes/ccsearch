@@ -6,7 +6,15 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+### Changed
+
+- Renamed from `csearch` to `ccsearch` (command, package and repository) to
+  avoid sounding like a C tool. The old GitHub URL redirects. The cache
+  location is unchanged.
+
 ## [0.1.0] - 2026-11-04
+
+Released as `csearch`.
 
 ### Added
 
@@ -20,5 +28,5 @@ All notable changes to this project are documented here. The format follows
 - `-p` print mode, `-n` result count, `--reindex`, `--version`.
 - `CLAUDE_CONFIG_DIR` support.
 
-[Unreleased]: https://github.com/alexdoescodes/csearch/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/alexdoescodes/csearch/releases/tag/v0.1.0
+[Unreleased]: https://github.com/alexdoescodes/ccsearch/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/alexdoescodes/ccsearch/releases/tag/v0.1.0

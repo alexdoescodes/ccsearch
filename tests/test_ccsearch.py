@@ -3,7 +3,7 @@ import os
 
 import pytest
 
-import csearch as cs
+import ccsearch as cs
 
 
 def line(d):

@@ -1,18 +1,18 @@
 <div align="center">
 
-<img src="docs/assets/hero.svg" alt="csearch: fuzzy-find any Claude Code session by what it was about, and resume it from anywhere" width="100%">
+<img src="docs/assets/hero.svg" alt="ccsearch: fuzzy-find any Claude Code session by what it was about, and resume it from anywhere" width="100%">
 
 <br>
 
-[![CI](https://github.com/alexdoescodes/csearch/actions/workflows/ci.yml/badge.svg)](https://github.com/alexdoescodes/csearch/actions/workflows/ci.yml)
-[![Release](https://img.shields.io/github/v/release/alexdoescodes/csearch?color=f0883e&label=release)](https://github.com/alexdoescodes/csearch/releases)
+[![CI](https://github.com/alexdoescodes/ccsearch/actions/workflows/ci.yml/badge.svg)](https://github.com/alexdoescodes/ccsearch/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/alexdoescodes/ccsearch?color=f0883e&label=release)](https://github.com/alexdoescodes/ccsearch/releases)
 [![Python](https://img.shields.io/badge/python-3.10%2B-3776AB?logo=python&logoColor=white)](pyproject.toml)
 [![Platforms](https://img.shields.io/badge/platform-linux%20%7C%20macOS-8b949e)](#requirements)
 [![License: MIT](https://img.shields.io/badge/license-MIT-3fb950)](LICENSE)
 
 **You remember *what* you worked on with Claude. You don't remember *where*, or which of 300 sessions it was.**
 <br>
-`csearch` finds it by topic, lets you pick with the arrow keys, and drops you straight back in.
+`ccsearch` finds it by topic, lets you pick with the arrow keys, and drops you straight back in.
 
 [Install](#install) · [Usage](#usage) · [How it works](#how-it-works) · [FAQ](#faq)
 
@@ -21,7 +21,7 @@
 ---
 
 <p align="center">
-  <img src="docs/assets/demo.svg" alt="Terminal demo: 'csearch dokcer backup' lists five ranked sessions, the arrow keys move the selection, Enter resumes the session in its own project directory" width="100%">
+  <img src="docs/assets/demo.svg" alt="Terminal demo: 'ccsearch dokcer backup' lists five ranked sessions, the arrow keys move the selection, Enter resumes the session in its own project directory" width="100%">
 </p>
 
 ## Why
@@ -30,7 +30,7 @@
 That works until the session you want is from two weeks ago, in another
 project, and you only remember that it was *"the one about docker backups"*.
 
-`csearch` searches **every** session on your machine by what it was about:
+`ccsearch` searches **every** session on your machine by what it was about:
 
 - 🔎 **Topic-first fuzzy search.** Matches the session title, every prompt you
   typed, and the project path. It's typo-tolerant, so `dokcer` still finds docker.
@@ -50,7 +50,7 @@ project, and you only remember that it was *"the one about docker backups"*.
 <summary><b>uv</b> (recommended)</summary>
 
 ```sh
-uv tool install git+https://github.com/alexdoescodes/csearch
+uv tool install git+https://github.com/alexdoescodes/ccsearch
 ```
 </details>
 
@@ -58,7 +58,7 @@ uv tool install git+https://github.com/alexdoescodes/csearch
 <summary><b>pipx</b></summary>
 
 ```sh
-pipx install git+https://github.com/alexdoescodes/csearch
+pipx install git+https://github.com/alexdoescodes/ccsearch
 ```
 </details>
 
@@ -68,8 +68,8 @@ pipx install git+https://github.com/alexdoescodes/csearch
 ```sh
 # install rapidfuzz however your system prefers, e.g. pacman -S python-rapidfuzz,
 # brew install rapidfuzz-cpp && pip install rapidfuzz, or pip install --user rapidfuzz
-curl -fsSL https://raw.githubusercontent.com/alexdoescodes/csearch/main/csearch.py -o ~/.local/bin/csearch
-chmod +x ~/.local/bin/csearch
+curl -fsSL https://raw.githubusercontent.com/alexdoescodes/ccsearch/main/ccsearch.py -o ~/.local/bin/ccsearch
+chmod +x ~/.local/bin/ccsearch
 ```
 </details>
 
@@ -82,11 +82,11 @@ chmod +x ~/.local/bin/csearch
 ## Usage
 
 ```sh
-csearch docker backup          # search, pick, resume
-csearch                        # prompts for the search words
-csearch -p invoice pdf         # print the matches, no picker (good for scripts)
-csearch -n 10 auth             # show 10 instead of 5
-csearch --reindex              # rebuild the cache from scratch
+ccsearch docker backup          # search, pick, resume
+ccsearch                        # prompts for the search words
+ccsearch -p invoice pdf         # print the matches, no picker (good for scripts)
+ccsearch -n 10 auth             # show 10 instead of 5
+ccsearch --reindex              # rebuild the cache from scratch
 ```
 
 | Key | Action |
@@ -99,7 +99,7 @@ csearch --reindex              # rebuild the cache from scratch
 
 **Tips**
 
-- Mix topic and project words: `csearch myApp login` favours sessions from
+- Mix topic and project words: `ccsearch myApp login` favours sessions from
   `~/…/myApp` that talk about login.
 - Name important sessions with Claude Code's `/rename`. Custom titles are
   matched and shown first.
@@ -119,7 +119,7 @@ csearch --reindex              # rebuild the cache from scratch
 </picture>
 
 1. **Read.** Claude Code stores each session as a JSONL transcript in
-   `~/.claude/projects/<encoded-project-path>/<session-id>.jsonl`. `csearch`
+   `~/.claude/projects/<encoded-project-path>/<session-id>.jsonl`. `ccsearch`
    pulls out the title (`/rename` title or Claude Code's auto title), the
    prompts you typed, and the project directory. Injected context (system
    reminders, IDE selections, command output), tool results, Claude's replies
@@ -140,7 +140,7 @@ csearch --reindex              # rebuild the cache from scratch
    The per-word scores are averaged (70%) and blended with a whole-phrase
    match (30%). A small bonus (up to +3) favours sessions from the last 90 days.
 4. **Resume.** Claude Code looks up a session by the directory it was started
-   in, so `csearch` `cd`s there and `exec`s `claude --resume <id>`. If the
+   in, so `ccsearch` `cd`s there and `exec`s `claude --resume <id>`. If the
    project has moved, it walks the filesystem to find the directory that
    matches the session's folder name.
 
@@ -165,7 +165,7 @@ out to be a far better signal.
 <details>
 <summary><b>A session I expected isn't showing up.</b></summary>
 
-Run `csearch --reindex` to rule out a stale cache. Sessions where you only
+Run `ccsearch --reindex` to rule out a stale cache. Sessions where you only
 ran slash commands like `/clear` have almost nothing to match on.
 Subagent transcripts aren't listed because they can't be resumed directly.
 </details>
@@ -173,9 +173,9 @@ Subagent transcripts aren't listed because they can't be resumed directly.
 <details>
 <summary><b>It broke after a Claude Code update.</b></summary>
 
-`csearch` reads Claude Code's on-disk transcript format, which is an internal
+`ccsearch` reads Claude Code's on-disk transcript format, which is an internal
 detail, not a public API, and can change. Please
-[open an issue](https://github.com/alexdoescodes/csearch/issues/new/choose) with
+[open an issue](https://github.com/alexdoescodes/ccsearch/issues/new/choose) with
 your `claude --version`.
 </details>
 
@@ -188,5 +188,5 @@ README animations are generated by [`scripts/build_assets.py`](scripts/build_ass
 
 [MIT](LICENSE) © Alexander Hohenhorst
 
-<sub>csearch is an independent project. It is not affiliated with or endorsed by Anthropic.
+<sub>ccsearch is an independent project. It is not affiliated with or endorsed by Anthropic.
 "Claude" and "Claude Code" are trademarks of Anthropic.</sub>

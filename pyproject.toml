@@ -3,7 +3,7 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "csearch"
+name = "ccsearch"
 dynamic = ["version"]
 description = "Fuzzy-search your Claude Code sessions by topic and resume one with the arrow keys, from any directory."
 readme = "README.md"
@@ -13,19 +13,19 @@ requires-python = ">=3.10"
 dependencies = ["rapidfuzz>=3.0"]
 
 [project.urls]
-Homepage = "https://github.com/alexdoescodes/csearch"
+Homepage = "https://github.com/alexdoescodes/ccsearch"
 
 [project.scripts]
-csearch = "csearch:cli"
+ccsearch = "ccsearch:cli"
 
 [project.optional-dependencies]
 dev = ["pytest", "ruff"]
 
 [tool.setuptools]
-py-modules = ["csearch"]
+py-modules = ["ccsearch"]
 
 [tool.setuptools.dynamic]
-version = { attr = "csearch.__version__" }
+version = { attr = "ccsearch.__version__" }
 
 [tool.ruff]
 line-length = 120

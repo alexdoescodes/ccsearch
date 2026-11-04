@@ -21,4 +21,4 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           awk -v v="${GITHUB_REF_NAME#v}" '$0 ~ "^## \\[" v "\\]" {on=1; next} on && /^## \[/ {exit} on' CHANGELOG.md > notes.md
-          gh release create "$GITHUB_REF_NAME" dist/* --title "csearch $GITHUB_REF_NAME" --notes-file notes.md
+          gh release create "$GITHUB_REF_NAME" dist/* --title "ccsearch $GITHUB_REF_NAME" --notes-file notes.md

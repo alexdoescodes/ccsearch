@@ -1,6 +1,6 @@
 # Contributing
 
-Issues and PRs are welcome. csearch is meant to stay one file with one
+Issues and PRs are welcome. ccsearch is meant to stay one file with one
 dependency.
 
 ```sh

@@ -129,7 +129,7 @@ def hero():
   <rect x="56" y="58" width="236" height="26" rx="13" fill="#ffffff" fill-opacity=".06" stroke="#ffffff" stroke-opacity=".12"/>
   <circle cx="72" cy="71" r="4" fill="#3fb950"><animate attributeName="opacity" values="1;.35;1" dur="2.4s" repeatCount="indefinite"/></circle>
   <text x="84" y="75.5" font-size="12.5" fill="#c9d1d9" letter-spacing=".4">CLI for Claude Code sessions</text>
-  <text x="52" y="160" font-family="{MONO}" font-size="78" font-weight="800" fill="url(#word)" letter-spacing="-2">csearch</text>
+  <text x="52" y="160" font-family="{MONO}" font-size="78" font-weight="800" fill="url(#word)" letter-spacing="-2">ccsearch</text>
   <text x="56" y="203" font-size="19" fill="#e6edf3">Fuzzy-find any session by what it was about.</text>
   <text x="56" y="232" font-size="19" fill="#8b949e">Arrow keys to pick. Enter to resume — from anywhere.</text>
   {chips()}
@@ -144,8 +144,8 @@ def hero():
     {visible(2.2, D - 0.4, D)}top 5 · 0.1 s</text>
   {"".join(cards)}
 </g>'''
-    return svg(W, H, body, "csearch",
-               "csearch: fuzzy-find any Claude Code session by what it was about, pick it with the arrow keys "
+    return svg(W, H, body, "ccsearch",
+               "ccsearch: fuzzy-find any Claude Code session by what it was about, pick it with the arrow keys "
                "and resume it from anywhere. A search box types 'dokcer backup' and five ranked sessions slide in.")
 
 
@@ -224,7 +224,7 @@ def demo():
 <g font-family="{MONO}" font-size="14">
   <text x="{x0}" y="74" fill="{C['green']}">~/anywhere</text>
   <text x="{x0 + 92}" y="74" fill="{C['pink']}">❯</text>
-  {typed("csearch dokcer backup", x0 + 110, 74, 0.7, 0.085, t_end, D, f'fill="{C["fg"]}"')}
+  {typed("ccsearch dokcer backup", x0 + 110, 74, 0.7, 0.085, t_end, D, f'fill="{C["fg"]}"')}
   {"".join(key_badges)}
   {selection}
   {"".join(body_rows)}
@@ -249,8 +249,8 @@ def demo():
     </rect>
   </g>
 </g>'''
-    return svg(W, H, body, "csearch demo",
-               "Terminal recording: typing 'csearch dokcer backup' (with a typo) lists the five best-matching "
+    return svg(W, H, body, "ccsearch demo",
+               "Terminal recording: typing 'ccsearch dokcer backup' (with a typo) lists the five best-matching "
                "Claude Code sessions. The selection moves with the arrow keys, Enter switches to ~/homelab and "
                "runs claude --resume on the chosen session.")
 
@@ -296,7 +296,7 @@ def how(theme):
   </path>
   <path d="M{x2 - 6} {y + 47}l6 5-6 5" fill="none" stroke="{c['accent']}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>''')
     body = "".join(parts)
-    return svg(W, H, body, "How csearch works",
+    return svg(W, H, body, "How ccsearch works",
                "Four steps: read Claude Code transcripts, keep a cached index that only re-reads changed files, "
                "fuzzy-match on title, prompts and project path, then run claude --resume in the session's own directory.")
 
