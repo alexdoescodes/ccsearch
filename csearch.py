@@ -7,9 +7,14 @@ Usage:
   csearch -p <words...>     print the top matches, no picker
   csearch -n 10 <words...>  show 10 matches instead of 5
   csearch --reindex ...     rebuild the cache from scratch
+  csearch --version         print the version
 
 Matches against (strongest first): the session title, the prompts you
 typed, and the project directory.
+
+Environment:
+  CLAUDE_CONFIG_DIR   Claude Code config dir (default ~/.claude)
+  XDG_CACHE_HOME      where the index is cached (default ~/.cache)
 """
 import json
 import os
@@ -20,7 +25,9 @@ from datetime import datetime
 
 from rapidfuzz import fuzz
 
-PROJECTS = os.path.expanduser("~/.claude/projects")
+__version__ = "0.1.0"
+
+PROJECTS = os.path.join(os.environ.get("CLAUDE_CONFIG_DIR", os.path.expanduser("~/.claude")), "projects")
 CACHE_DIR = os.path.join(os.environ.get("XDG_CACHE_HOME", os.path.expanduser("~/.cache")), "claude-session-search")
 CACHE = os.path.join(CACHE_DIR, "index.json")
 INDEX_VERSION = 2
@@ -155,9 +162,10 @@ def load_index(rebuild=False):
             continue
         changed = True
     if changed or len(files) != len(cache):
-        os.makedirs(CACHE_DIR, exist_ok=True)
+        # the index holds your prompts: keep it private like shell history
+        os.makedirs(CACHE_DIR, mode=0o700, exist_ok=True)
         tmp = CACHE + ".tmp"
-        with open(tmp, "w") as fh:
+        with os.fdopen(os.open(tmp, os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o600), "w") as fh:
             json.dump({"version": INDEX_VERSION, "files": files}, fh)
         os.replace(tmp, CACHE)
     return [v["s"] for v in files.values() if v["s"]]
@@ -355,8 +363,15 @@ def main(argv):
             printing = True
         elif a == "--reindex":
             rebuild = True
+        elif a in ("-V", "--version"):
+            print(f"csearch {__version__}")
+            return 0
         elif a == "-n":
-            n = int(next(it, "5"))
+            val = next(it, "")
+            if not val.isdigit() or int(val) < 1:
+                print("csearch: -n needs a positive number", file=sys.stderr)
+                return 2
+            n = int(val)
         else:
             words.append(a)
     query = " ".join(words).strip()
@@ -382,8 +397,13 @@ def main(argv):
     return 0
 
 
-if __name__ == "__main__":
+def cli():
+    """Console-script entry point."""
     try:
         sys.exit(main(sys.argv[1:]))
     except KeyboardInterrupt:
         sys.exit(130)
+
+
+if __name__ == "__main__":
+    cli()
