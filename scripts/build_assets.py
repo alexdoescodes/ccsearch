@@ -55,19 +55,25 @@ def svg(w, h, body, title, desc):
 
 # ---------------------------------------------------------------- hero
 
+CHIPS_MAX_X = 540  # left column ends here; the results panel starts at 600
+
+
 def chips():
+    """Feature chips. Widths assume a wide sans (8 px/char at 12 px) so fonts that
+    render wider than the build machine's still fit inside the left column."""
     out, x = [], 56
     for label, color in (("typo-tolerant", "#f0a35e"), ("incremental index", "#39c5cf"),
-                         ("resumes in any dir", "#f778ba"), ("one dependency", "#3fb950")):
-        w = 22 + len(label) * 7.1
-        out.append(f'<rect x="{x}" y="252" width="{w:.0f}" height="22" rx="11" fill="{color}" fill-opacity=".10" '
+                         ("resumes anywhere", "#f778ba")):
+        w = 26 + len(label) * 8
+        out.append(f'<rect x="{x}" y="258" width="{w}" height="24" rx="12" fill="{color}" fill-opacity=".10" '
                    f'stroke="{color}" stroke-opacity=".35"/>'
-                   f'<text x="{x + w / 2:.0f}" y="267" text-anchor="middle" font-size="12" fill="{color}">{label}</text>')
-        x += w + 8
+                   f'<text x="{x + w / 2:.0f}" y="274" text-anchor="middle" font-size="12" fill="{color}">{label}</text>')
+        x += w + 10
+    assert x - 10 <= CHIPS_MAX_X, f"chips overflow the left column ({x - 10} > {CHIPS_MAX_X})"
     return "".join(out)
 
 def hero():
-    W, H, D = 960, 300, 9
+    W, H, D = 960, 340, 9  # content spans y 58..282: equal top/bottom margins
     rows = [("Restic backups for Docker volumes", 94),
             ("Backup sidecar healthcheck", 81),
             ("Postgres dump script cleanup", 74),
@@ -146,7 +152,7 @@ def hero():
 # ---------------------------------------------------------------- terminal demo
 
 def demo():
-    W, H, D = 880, 540, 16
+    W, H, D = 880, 556, 16
     x0 = 28
     C = {"fg": "#e6edf3", "dim": "#8b949e", "faint": "#6e7781", "accent": "#39c5cf",
          "amber": "#f0a35e", "green": "#3fb950", "pink": "#f778ba"}
@@ -166,7 +172,10 @@ def demo():
     # (row, from, to) for the selection bar, and the key pressed when it moves
     sel = [(0, t_results, 5.0), (1, 5.0, 6.0), (2, 6.0, 6.9), (1, 6.9, 7.8), (0, 7.8, t_enter)]
     keys = [("↓", 5.0), ("↓", 6.0), ("↑", 6.9), ("↑", 7.8), ("⏎ Enter", t_enter)]
-    top, step = 112, 68
+    # row = 3 lines (baselines +0, +20, +40). The selection box pads ~9 px above the
+    # title's cap height and below the italic line's descenders; rows sit 9 px apart.
+    top, step = 112, 82
+    box_top, box_h = -20, 73
 
     body_rows = []
     for i, (title, path, when, sc, match) in enumerate(rows):
@@ -186,7 +195,7 @@ def demo():
       <g>
         <animateTransform attributeName="transform" type="translate" dur="{D}s" repeatCount="indefinite"
           calcMode="discrete" values="0 0;{tr}" keyTimes="0;{kt(t_results, D)};{kts.split(';', 1)[1]}"/>
-        <rect x="{x0 - 8}" y="{top - 19}" width="{W - 2 * x0 + 16}" height="{step - 8}" rx="8"
+        <rect x="{x0 - 10}" y="{top + box_top}" width="{W - 2 * x0 + 20}" height="{box_h}" rx="9"
           fill="{C['accent']}" fill-opacity=".10" stroke="{C['accent']}" stroke-opacity=".45"/>
         <text x="{x0}" y="{top}" fill="{C['accent']}" font-weight="700">❯</text>
       </g>
@@ -219,7 +228,7 @@ def demo():
   {"".join(key_badges)}
   {selection}
   {"".join(body_rows)}
-  <text x="{x0}" y="{top + 5 * step - 6}" fill="{C['faint']}" font-size="12.5" opacity="0">{visible(t_results + 0.4, t_enter, D)}↑/↓ move · Enter resume · 1-9 jump · Esc quit</text>
+  <text x="{x0}" y="{top + 4 * step + box_top + box_h + 22}" fill="{C['faint']}" font-size="12.5" opacity="0">{visible(t_results + 0.4, t_enter, D)}↑/↓ move · Enter resume · 1-9 jump · Esc quit</text>
 
   <g opacity="0">{visible(after, t_end, D)}
     <text x="{x0}" y="{top}" fill="{C['dim']}">→ /home/you/homelab</text>

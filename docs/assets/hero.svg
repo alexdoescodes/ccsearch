@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="300" viewBox="0 0 960 300" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="340" viewBox="0 0 960 340" role="img" aria-labelledby="t d">
 <title id="t">csearch</title>
 <desc id="d">csearch: fuzzy-find any Claude Code session by what it was about, pick it with the arrow keys and resume it from anywhere. A search box types 'dokcer backup' and five ranked sessions slide in.</desc>
 
@@ -18,11 +18,11 @@
   <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
     <path d="M28 0H0V28" fill="none" stroke="#ffffff" stroke-opacity=".035"/>
   </pattern>
-  <clipPath id="frame"><rect width="960" height="300" rx="20"/></clipPath>
+  <clipPath id="frame"><rect width="960" height="340" rx="20"/></clipPath>
 </defs>
 <g clip-path="url(#frame)">
-  <rect width="960" height="300" fill="url(#bg)"/>
-  <rect width="960" height="300" fill="url(#grid)"/>
+  <rect width="960" height="340" fill="url(#bg)"/>
+  <rect width="960" height="340" fill="url(#grid)"/>
   <circle cx="180" cy="40" r="260" fill="url(#glowA)">
     <animateTransform attributeName="transform" type="translate" values="0 0;60 40;0 0" dur="14s" repeatCount="indefinite"/>
   </circle>
@@ -30,7 +30,7 @@
     <animateTransform attributeName="transform" type="translate" values="0 0;-70 -30;0 0" dur="16s" repeatCount="indefinite"/>
   </circle>
 </g>
-<rect x=".5" y=".5" width="959" height="299" rx="20" fill="none" stroke="#ffffff" stroke-opacity=".08"/>
+<rect x=".5" y=".5" width="959" height="339" rx="20" fill="none" stroke="#ffffff" stroke-opacity=".08"/>
 
 <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif">
   <rect x="56" y="58" width="236" height="26" rx="13" fill="#ffffff" fill-opacity=".06" stroke="#ffffff" stroke-opacity=".12"/>
@@ -39,7 +39,7 @@
   <text x="52" y="160" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="78" font-weight="800" fill="url(#word)" letter-spacing="-2">csearch</text>
   <text x="56" y="203" font-size="19" fill="#e6edf3">Fuzzy-find any session by what it was about.</text>
   <text x="56" y="232" font-size="19" fill="#8b949e">Arrow keys to pick. Enter to resume — from anywhere.</text>
-  <rect x="56" y="252" width="114" height="22" rx="11" fill="#f0a35e" fill-opacity=".10" stroke="#f0a35e" stroke-opacity=".35"/><text x="113" y="267" text-anchor="middle" font-size="12" fill="#f0a35e">typo-tolerant</text><rect x="178.3" y="252" width="143" height="22" rx="11" fill="#39c5cf" fill-opacity=".10" stroke="#39c5cf" stroke-opacity=".35"/><text x="250" y="267" text-anchor="middle" font-size="12" fill="#39c5cf">incremental index</text><rect x="329.0" y="252" width="150" height="22" rx="11" fill="#f778ba" fill-opacity=".10" stroke="#f778ba" stroke-opacity=".35"/><text x="404" y="267" text-anchor="middle" font-size="12" fill="#f778ba">resumes in any dir</text><rect x="486.8" y="252" width="121" height="22" rx="11" fill="#3fb950" fill-opacity=".10" stroke="#3fb950" stroke-opacity=".35"/><text x="548" y="267" text-anchor="middle" font-size="12" fill="#3fb950">one dependency</text>
+  <rect x="56" y="258" width="130" height="24" rx="12" fill="#f0a35e" fill-opacity=".10" stroke="#f0a35e" stroke-opacity=".35"/><text x="121" y="274" text-anchor="middle" font-size="12" fill="#f0a35e">typo-tolerant</text><rect x="196" y="258" width="162" height="24" rx="12" fill="#39c5cf" fill-opacity=".10" stroke="#39c5cf" stroke-opacity=".35"/><text x="277" y="274" text-anchor="middle" font-size="12" fill="#39c5cf">incremental index</text><rect x="368" y="258" width="154" height="24" rx="12" fill="#f778ba" fill-opacity=".10" stroke="#f778ba" stroke-opacity=".35"/><text x="445" y="274" text-anchor="middle" font-size="12" fill="#f778ba">resumes anywhere</text>
 </g>
 
 <g>
