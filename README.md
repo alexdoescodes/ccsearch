@@ -99,8 +99,8 @@ csearch --reindex              # rebuild the cache from scratch
 
 **Tips**
 
-- Mix topic and project words: `csearch harbor login` favours sessions from
-  `~/…/harbor` that talk about login.
+- Mix topic and project words: `csearch myApp login` favours sessions from
+  `~/…/myApp` that talk about login.
 - Name important sessions with Claude Code's `/rename`. Custom titles are
   matched and shown first.
 
