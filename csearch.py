@@ -35,7 +35,7 @@ INDEX_VERSION = 2
 NOISE_RE = re.compile(
     r"<(system-reminder|ide_opened_file|ide_selection|local-command-stdout|local-command-caveat|"
     r"command-message|command-args|bash-stdout|bash-stderr)>.*?</\1>",
-    re.S,
+    re.DOTALL,
 )
 TAG_RE = re.compile(r"</?[a-zA-Z_-]+(\s[^>]*)?>")
 PROMPT_CAP = 600      # chars kept per prompt

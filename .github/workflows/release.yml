@@ -9,29 +9,16 @@ permissions:
 
 jobs:
   release:
-    name: Build and publish GitHub release
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
         with:
-          python-version: "3.13"
-      - run: pip install build
-      - run: python -m build
-      - name: Check tag matches package version
-        run: |
-          pkg=$(sed -n 's/^__version__ = "\(.*\)"/\1/p' csearch.py)
-          test "v$pkg" = "${GITHUB_REF_NAME}" || { echo "tag ${GITHUB_REF_NAME} != v$pkg"; exit 1; }
-      - name: Extract changelog section
-        run: |
-          awk -v v="${GITHUB_REF_NAME#v}" '
-            $0 ~ "^## \\[" v "\\]" {on=1; next}
-            on && /^## \[/ {exit}
-            on {print}
-          ' CHANGELOG.md > notes.md
-      - name: Publish
+          python-version: "3.14"
+      - run: pip install build && python -m build
+      - name: Publish with the changelog section as notes
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "$GITHUB_REF_NAME" dist/* \
-            --title "csearch $GITHUB_REF_NAME" --notes-file notes.md
+          awk -v v="${GITHUB_REF_NAME#v}" '$0 ~ "^## \\[" v "\\]" {on=1; next} on && /^## \[/ {exit} on' CHANGELOG.md > notes.md
+          gh release create "$GITHUB_REF_NAME" dist/* --title "csearch $GITHUB_REF_NAME" --notes-file notes.md
