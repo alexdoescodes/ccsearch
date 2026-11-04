@@ -261,7 +261,7 @@ def rows_for(results, tokens, width):
 
 def print_results(results, tokens):
     width = os.get_terminal_size().columns if sys.stdout.isatty() else 120
-    for i, (r, (_, s)) in enumerate(zip(rows_for(results, tokens, width), results), 1):
+    for i, (r, (_, s)) in enumerate(zip(rows_for(results, tokens, width), results, strict=True), 1):
         print(f"{i}. {r[0]}\n   {r[1]}\n   {r[2]}\n   id {s['id']}\n")
 
 

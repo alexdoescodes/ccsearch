@@ -6,7 +6,7 @@
 
 [![CI](https://github.com/alexdoescodes/csearch/actions/workflows/ci.yml/badge.svg)](https://github.com/alexdoescodes/csearch/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/alexdoescodes/csearch?color=f0883e&label=release)](https://github.com/alexdoescodes/csearch/releases)
-[![Python](https://img.shields.io/badge/python-3.9%2B-3776AB?logo=python&logoColor=white)](pyproject.toml)
+[![Python](https://img.shields.io/badge/python-3.10%2B-3776AB?logo=python&logoColor=white)](pyproject.toml)
 [![Platforms](https://img.shields.io/badge/platform-linux%20%7C%20macOS-8b949e)](#requirements)
 [![License: MIT](https://img.shields.io/badge/license-MIT-3fb950)](LICENSE)
 
@@ -76,7 +76,7 @@ chmod +x ~/.local/bin/csearch
 ### Requirements
 
 - Linux or macOS. The picker uses `termios`, so Windows is only supported through WSL.
-- Python 3.9+
+- Python 3.10+
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code), with `claude` on your `PATH`
 
 ## Usage
