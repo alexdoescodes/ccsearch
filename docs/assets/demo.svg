@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="540" viewBox="0 0 880 540" role="img" aria-labelledby="t d">
+<title id="t">csearch demo</title>
+<desc id="d">Terminal recording: typing 'csearch dokcer backup' (with a typo) lists the five best-matching Claude Code sessions. The selection moves with the arrow keys, Enter switches to ~/homelab and runs claude --resume on the chosen session.</desc>
+
+<defs>
+  <linearGradient id="chrome" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#1c2129"/><stop offset="1" stop-color="#161b22"/></linearGradient>
+  <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000" flood-opacity=".35"/></filter>
+</defs>
+<rect x="8" y="6" width="864" height="518" rx="14" fill="#0d1117" stroke="#30363d" filter="url(#shadow)"/>
+<path d="M8 20a14 14 0 0 1 14-14h836a14 14 0 0 1 14 14v18H8z" fill="url(#chrome)"/>
+<circle cx="32" cy="23" r="6" fill="#ff5f57"/><circle cx="52" cy="23" r="6" fill="#febc2e"/><circle cx="72" cy="23" r="6" fill="#28c840"/>
+<text x="440.0" y="27" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" fill="#6e7781">zsh — ~/anywhere</text>
+
+<g font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="14">
+  <text x="28" y="74" fill="#3fb950">~/anywhere</text>
+  <text x="120" y="74" fill="#f778ba">❯</text>
+  <text x="138" y="74" xml:space="preserve" fill="#e6edf3"><tspan opacity="0">c<animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.0437;0.9688"/></tspan><tspan opacity="0">s<animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.0491;0.9688"/></tspan><tspan opacity="0">e<animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.0544;0.9688"/></tspan><tspan opacity="0">a<animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.0597;0.9688"/></tspan><tspan opacity="0">r<animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.0650;0.9688"/></tspan><tspan opacity="0">c<animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.0703;0.9688"/></tspan><tspan opacity="0">h<animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.0756;0.9688"/></tspan><tspan opacity="0"> <animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.0809;0.9688"/></tspan><tspan opacity="0">d<animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.0862;0.9688"/></tspan><tspan opacity="0">o<animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.0916;0.9688"/></tspan><tspan opacity="0">k<animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.0969;0.9688"/></tspan><tspan opacity="0">c<animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.1022;0.9688"/></tspan><tspan opacity="0">e<animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.1075;0.9688"/></tspan><tspan opacity="0">r<animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.1128;0.9688"/></tspan><tspan opacity="0"> <animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.1181;0.9688"/></tspan><tspan opacity="0">b<animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.1234;0.9688"/></tspan><tspan opacity="0">a<animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.1288;0.9688"/></tspan><tspan opacity="0">c<animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.1341;0.9688"/></tspan><tspan opacity="0">k<animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.1394;0.9688"/></tspan><tspan opacity="0">u<animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.1447;0.9688"/></tspan><tspan opacity="0">p<animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.1500;0.9688"/></tspan></text>
+  
+    <g opacity="0"><animate attributeName="opacity" dur="16s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.3094;0.3169;0.3519;0.3594;1.0000"/>
+      <rect x="818" y="58" width="34" height="26" rx="6" fill="#21262d" stroke="#30363d"/>
+      <text x="835.0" y="76" text-anchor="middle" fill="#e6edf3" font-size="13">↓</text>
+    </g>
+    <g opacity="0"><animate attributeName="opacity" dur="16s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.3719;0.3794;0.4144;0.4219;1.0000"/>
+      <rect x="818" y="58" width="34" height="26" rx="6" fill="#21262d" stroke="#30363d"/>
+      <text x="835.0" y="76" text-anchor="middle" fill="#e6edf3" font-size="13">↓</text>
+    </g>
+    <g opacity="0"><animate attributeName="opacity" dur="16s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.4281;0.4356;0.4706;0.4781;1.0000"/>
+      <rect x="818" y="58" width="34" height="26" rx="6" fill="#21262d" stroke="#30363d"/>
+      <text x="835.0" y="76" text-anchor="middle" fill="#e6edf3" font-size="13">↑</text>
+    </g>
+    <g opacity="0"><animate attributeName="opacity" dur="16s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.4844;0.4919;0.5269;0.5344;1.0000"/>
+      <rect x="818" y="58" width="34" height="26" rx="6" fill="#21262d" stroke="#30363d"/>
+      <text x="835.0" y="76" text-anchor="middle" fill="#e6edf3" font-size="13">↑</text>
+    </g>
+    <g opacity="0"><animate attributeName="opacity" dur="16s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.5844;0.5919;0.6269;0.6344;1.0000"/>
+      <rect x="764" y="58" width="88" height="26" rx="6" fill="#21262d" stroke="#30363d"/>
+      <text x="808.0" y="76" text-anchor="middle" fill="#e6edf3" font-size="13">⏎ Enter</text>
+    </g>
+  
+    <g opacity="0"><animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.1812;0.5875"/>
+      <g>
+        <animateTransform attributeName="transform" type="translate" dur="16s" repeatCount="indefinite"
+          calcMode="discrete" values="0 0;0 0;0 68;0 136;0 68;0 0" keyTimes="0;0.1812;0.3125;0.3750;0.4313;0.4875"/>
+        <rect x="20" y="93" width="840" height="60" rx="8"
+          fill="#39c5cf" fill-opacity=".10" stroke="#39c5cf" stroke-opacity=".45"/>
+        <text x="28" y="112" fill="#39c5cf" font-weight="700">❯</text>
+      </g>
+    </g>
+  
+    <g opacity="0"><animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.1812;0.5875"/>
+      <text x="50" y="112" font-weight="700" fill="#e6edf3">Restic backups for Docker volumes</text>
+      <text x="50" y="132" fill="#6e7781">~/homelab  ·  2026-11-02 21:14  ·  score 94</text>
+      <text x="50" y="152" fill="#8b949e" font-style="italic">› my docker volume backups keep failing since the restic update</text>
+    </g>
+    <g opacity="0"><animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.1856;0.5875"/>
+      <text x="50" y="180" font-weight="700" fill="#e6edf3">Compose healthcheck for the backup sidecar</text>
+      <text x="50" y="200" fill="#6e7781">~/homelab  ·  2026-10-28 18:40  ·  score 81</text>
+      <text x="50" y="220" fill="#8b949e" font-style="italic">› add a healthcheck so the backup container waits for postgres</text>
+    </g>
+    <g opacity="0"><animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.1900;0.5875"/>
+      <text x="50" y="248" font-weight="700" fill="#e6edf3">Postgres dump script cleanup</text>
+      <text x="50" y="268" fill="#6e7781">~/Dev/ledger  ·  2026-10-19 09:02  ·  score 74</text>
+      <text x="50" y="288" fill="#8b949e" font-style="italic">› clean up the nightly pg_dump script, it writes to /tmp</text>
+    </g>
+    <g opacity="0"><animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.1944;0.5875"/>
+      <text x="50" y="316" font-weight="700" fill="#e6edf3">Dockerfile slim-down</text>
+      <text x="50" y="336" fill="#6e7781">~/Dev/api  ·  2026-09-30 14:55  ·  score 69</text>
+      <text x="50" y="356" fill="#8b949e" font-style="italic">› the docker image is 1.2 GB, make it smaller</text>
+    </g>
+    <g opacity="0"><animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.1987;0.5875"/>
+      <text x="50" y="384" font-weight="700" fill="#e6edf3">NAS snapshot schedule</text>
+      <text x="50" y="404" fill="#6e7781">~  ·  2026-09-12 22:31  ·  score 63</text>
+      <text x="50" y="424" fill="#8b949e" font-style="italic">› how often should zfs snapshots run for backups</text>
+    </g>
+  <text x="28" y="446" fill="#6e7781" font-size="12.5" opacity="0"><animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.2062;0.5875"/>↑/↓ move · Enter resume · 1-9 jump · Esc quit</text>
+
+  <g opacity="0"><animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.6031;0.9688"/>
+    <text x="28" y="112" fill="#8b949e">→ /home/you/homelab</text>
+  </g>
+  <g opacity="0"><animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.6219;0.9688"/>
+    <text x="28" y="134" fill="#8b949e">→ claude --resume 7f3c9a2e-41d8-4b6a-9c1e-2b5d8f0a7e13</text>
+  </g>
+  <g opacity="0"><animate attributeName="opacity" dur="16s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.6656;0.6844;0.9500;0.9688;1.0000"/>
+    <rect x="24" y="160" width="832" height="96" rx="10" fill="#161b22" stroke="#f0a35e" stroke-opacity=".6"/>
+    <text x="44" y="190" fill="#f0a35e" font-weight="700">✓ Session restored</text>
+    <text x="44" y="214" fill="#e6edf3">Restic backups for Docker volumes</text>
+    <text x="44" y="236" fill="#6e7781">~/homelab · picked up right where you left off</text>
+  </g>
+  <g opacity="0"><animate attributeName="opacity" dur="16s" repeatCount="indefinite" calcMode="discrete" values="0;1;0" keyTimes="0;0.7031;0.9688"/>
+    <text x="28" y="294" fill="#f778ba">&gt;</text>
+    <rect x="46" y="280" width="9" height="18" fill="#e6edf3">
+      <animate attributeName="opacity" values="1;0;1" dur="1s" calcMode="discrete" keyTimes="0;.5;1" repeatCount="indefinite"/>
+    </rect>
+  </g>
+</g>
+</svg>
